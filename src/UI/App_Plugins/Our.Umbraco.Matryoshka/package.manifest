@@ -1,0 +1,21 @@
+﻿{
+    propertyEditors: [
+    {
+        alias: "Our.Umbraco.Matryoshka.GroupSeparator",
+        name: "Matryoshka Group Separator",
+        editor: {
+            view: "~/App_Plugins/Our.Umbraco.Matryoshka/group-separator.html",
+            hideLabel: true
+        },
+		icon: "icon-matryoshka"
+  	}],
+    javascript: [
+        "~/App_Plugins/Our.Umbraco.Matryoshka/content-interceptor.js",
+        "~/App_Plugins/Our.Umbraco.Matryoshka/directives/matryoshka-tabbed-content.directive.js",
+        "~/App_Plugins/Our.Umbraco.Matryoshka/directives/matryoshka-val-tab.directive.js"
+      ],
+    css: [
+        "~/App_Plugins/Our.Umbraco.Matryoshka/group-separator.css",
+        "~/App_Plugins/Our.Umbraco.Matryoshka/tabbed-content.css"
+    ]
+}
