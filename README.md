@@ -40,6 +40,7 @@ Have a question?
 ### Special thanks
 
 * Thanks to [Sebastiaan Janssen](https://github.com/nul800sebastiaan) for creating and releasing [Tabify](https://github.com/nul800sebastiaan/Cultiv.Tabify) which most of the tabbing functionality is based on.
+* Thanks to [Supalerk Laipawat](https://thenounproject.com/photo3idea/) for the logo.
 
 ## License
 
