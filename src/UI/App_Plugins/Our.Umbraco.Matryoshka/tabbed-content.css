@@ -101,3 +101,9 @@
 #umb-grid > .umb-editor-sub-header[umb-sticky-bar] {
     top: 64px;
 }
+
+/* moves down the Grid RTE sections so it doesn't cover the tabs or re-order bar*/
+#umb-grid .umb-control.-active .mce-toolbar[style*="top: 177px;"] {
+    top: 241px !important;
+    z-index: 1000;
+}
