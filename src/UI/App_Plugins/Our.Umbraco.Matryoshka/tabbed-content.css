@@ -42,7 +42,8 @@
     transition: all 0.3s ease-in-out 0s;
 }
 
-    .matryoshka-tab-link:not(.active):hover {
+    .matryoshka-tab-link:not(.active):hover,
+    .matryoshka-tab-link:focus {
         color: #2152a3;
     }
 
@@ -55,7 +56,8 @@
         background-color: #f5c1bc;
     }
 
-    .matryoshka-tab-link:not(.active):hover:before {
+    .matryoshka-tab-link:not(.active):hover:before,
+    .matryoshka-tab-link:not(.active):focus:before {
         opacity: 1;
         left: 12px;
         right: 12px;
