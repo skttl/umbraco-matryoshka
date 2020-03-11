@@ -95,10 +95,6 @@
     display:none;
 }
 
-.umb-editor-container {
-    z-index:2;
-}
-
 .matryoshka-tabbed-content-push {
     height:20px;
 }
