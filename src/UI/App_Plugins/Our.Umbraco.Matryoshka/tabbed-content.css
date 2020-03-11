@@ -103,7 +103,7 @@
 
 /* moves the Grid re-order bar down so it doesn't cover the tabs */
 #umb-grid > .umb-editor-sub-header[umb-sticky-bar] {
-    top: 64px;
+    top: 60px;
 }
 
 /* moves down the Grid RTE sections so it doesn't cover the tabs or re-order bar*/
