@@ -1,5 +1,5 @@
 ﻿<div>
-    <ng-form name="matyoshka-tabbed-content-form">
+    <ng-form name="tabbedContentForm">
         <ul class="matryoshka-tabs-list" ng-if="content.tabs.length > 1">
             <li class="matryoshka-tab-link" matryoshka-val-tab="" id="tab{{group.label}}" ng-class="{'active' : currentTab === group.label, 'hasError' : tabHasError}" ng-repeat="group in content.tabs track by group.label" ng-click="changeTab(group.label)">
                 <p>
