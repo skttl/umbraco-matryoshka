@@ -1,6 +1,5 @@
 
 .matryoshka-tabs-list {
-    overflow: hidden;
     margin: -20px 0 0 -20px;
     position: sticky;
     top:0;
@@ -9,15 +8,6 @@
     width: 100%;
     padding:0 20px;
 }
-
-    .matryoshka-tabs-list:after {
-        content: '';
-        position: absolute;
-        left: -20px;
-        right: -20px;
-        bottom: 0px;
-        border-bottom: 1px solid #e9e9eb;
-    }
 
 .matryoshka-tab-link {
     position: relative;
@@ -72,21 +62,21 @@
 
 /* Validation */
 
-.matryoshka-tab-link .icon {
+.matryoshka-tabs-list .umb-tab .icon {
     display: none;
 }
 
-.show-validation .matryoshka-tab-link.hasError .icon {
+.show-validation .matryoshka-tabs-list .umb-tab.hasError .icon {
     display: inline;
     position: absolute;
     color: #d42054;
 }
 
-.show-validation .matryoshka-tab-link.hasError span {
+.show-validation .matryoshka-tabs-list .umb-tab.hasError span {
     margin-left: 20px;
 }
 
-.matryoshka-tab-link p {
+.matryoshka-tabs-list .umb-tab p {
     margin: 0;
 }
 

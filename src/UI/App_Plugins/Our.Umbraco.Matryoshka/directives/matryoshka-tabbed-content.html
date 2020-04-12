@@ -1,11 +1,34 @@
 ﻿<div>
     <ng-form name="tabbedContentForm">
-        <ul class="matryoshka-tabs-list" ng-if="content.tabs.length > 1">
-            <li class="matryoshka-tab-link" matryoshka-val-tab="" id="tab{{group.label}}" ng-class="{'active' : currentTab === group.label, 'hasError' : tabHasError}" ng-repeat="group in content.tabs track by group.label" ng-click="changeTab(group.label)">
+        <ul class="matryoshka-tabs-list umb-tabs-nav" ng-if="content.tabs.length > 1">
+            <li class="matryoshka-tab-link umb-tab" 
+              data-element="tab-{{group.label}}" 
+              matryoshka-val-tab="" 
+              id="tab{{group.label}}" 
+              ng-class="{'active' : currentTab === group.label, 'hasError' : tabHasError}" 
+              ng-repeat="group in content.tabs | limitTo: maxTabs" 
+              ng-click="changeTab(group.label)">
                 <p>
                     <i class="icon icon-alert"></i>
                     <span>{{group.label}}</span>
                 </p>
+            </li>
+  
+            <li data-element="tab-expand" class="umb-tab umb-tab--expand" ng-class="{ 'open': showTray }" ng-show="needTray">
+                <a class="btn-reset umb-tab-button umb-tab-button--expand" ng-click="toggleTray()" type="button">
+                    <i></i><i></i><i></i>
+                    <span class="sr-only"><localize key="visuallyHiddenTexts_tabExpand">View more options</localize></span>
+                </a>
+                <umb-dropdown class="umb-tabs-tray" ng-if="showTray" on-close="vm.hideTray()">
+                    <umb-dropdown-item ng-repeat="group in content.tabs | limitTo: overflowingTabs" ng-class="{'umb-tabs-tray-item--active': tab.active, 'hasError' : tabHasError}">
+                        <button class="btn-reset umb-tab-button" matryoshka-val-tab="" ng-click="changeTab(group.label)" role="tab" aria-selected="{currentTab === group.label}" type="button">
+                          <p>
+                            <i class="icon icon-alert"></i>
+                            <span>{{group.label}}</span>
+                          </p>
+                        </button>
+                    </umb-dropdown-item>
+                </umb-dropdown>
             </li>
         </ul>
         <div class="matryoshka-tabbed-content-push" ng-if="content.tabs.length > 1"></div>
