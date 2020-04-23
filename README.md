@@ -12,13 +12,19 @@ Matryoshka enables you to layer your document type properties in tabs and groups
 
 > *Note:* Matryoshka has been developed against **Umbraco v8.4.0** and will support that version and above. It should work in v.8.0 and above too though.
 
-Matryoshka can be installed from Our Umbraco package repository.
+Matryoshka can be installed from the Our Umbraco package repository or with NuGet.
 
-#### Our Umbraco package repository
+#### Our Umbraco Package Repository
 
 To install from Our Umbraco, please download the package from:
 
 > [https://our.umbraco.org/projects/backoffice-extensions/matryoshka](https://our.umbraco.org/projects/backoffice-extensions/matryoshka)
+
+#### NuGet
+
+To install with NuGet, please search NuGet for "[Our.Umbraco.Matryoshka](https://www.nuget.org/packages/Our.Umbraco.Matryoshka)", or install it with this command from the package manager console:
+
+    Install-Package Our.Umbraco.Matryoshka
 
 ## Developers Guide
 
@@ -37,7 +43,7 @@ Have a question?
 
 * [Søren Kottal](https://github.com/skttl)
 
-### Special thanks
+### Special Thanks
 
 * Thanks to [Sebastiaan Janssen](https://github.com/nul800sebastiaan) for creating and releasing [Tabify](https://github.com/nul800sebastiaan/Cultiv.Tabify) which most of the tabbing functionality is based on.
 * Thanks to [Supalerk Laipawat](https://thenounproject.com/photo3idea/) for the logo.
