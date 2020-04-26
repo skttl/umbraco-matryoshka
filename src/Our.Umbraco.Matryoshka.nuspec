@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>Our.Umbraco.Matryoshka</id>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
     <authors>Søren Kottal</authors>
     <owners>Søren Kottal</owners>
     <projectUrl>https://github.com/skttl/our-umbraco-matryoshka/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Matryoshka enables you to layer your document type properties in tabs and groups. It substitutes the content editor view, with its own view, to make existing groups appear as tabs, and adds a property editor, which gives the impression of groups.</description>
-    <releaseNotes><![CDATA[0.2.0 bugfixes and enhancements]]></releaseNotes>
+    <releaseNotes><![CDATA[0.3.0 bugfixes and enhancements]]></releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>umbraco, umbraco-cms</tags>
   </metadata>
