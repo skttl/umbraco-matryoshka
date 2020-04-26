@@ -51,14 +51,11 @@
                 });
             }
 
-            $(window).on('resize.tabsNav', function () {
-                console.log("resize");
+            var ro = new ResizeObserver(function() {
                 calculateWidth();
             });
 
-            $scope.$on('$destroy', function() {
-                $(window).off('resize.tabsNav');
-            });
+            ro.observe(container[0]);
 
         }
 
