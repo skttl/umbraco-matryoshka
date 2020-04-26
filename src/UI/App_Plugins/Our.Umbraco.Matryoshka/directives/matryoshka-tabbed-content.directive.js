@@ -56,11 +56,11 @@
             });
 
             ro.observe(container[0]);
-
         }
 
-        function controller($scope, $element, $attrs) {
+        function controller($scope, $element, $attrs, $timeout) {
 
+            var appRootNode = $element[0];
 
             $scope.currentTab = $scope.content.tabs[0];
 
@@ -79,9 +79,8 @@
 
             $scope.changeTab = function changeTab(label) {
                 $scope.currentTab = label;
+                $scope.scrollTo(label, 0);
             };
-
-
 
             $scope.activeVariant = this.activeVariant;
 
@@ -115,6 +114,67 @@
             function hideTray() {
                 $scope.showTray = false;
             }
+
+            
+            $scope.groupSeparators = {};
+            var scrollableNode = appRootNode.closest('.umb-scrollable');
+            scrollableNode.addEventListener('mousewheel', cancelScrollTween);
+
+            function getScrollPositionFor(tab, alias) {
+                var previousTab = $scope.currentTab + "";
+                $scope.currentTab = tab;
+
+                var groupSeparator = document.querySelector("#our-matryoshka-group-separator-" + alias);
+
+                if (!groupSeparator) { 
+                    $scope.currentTab = previousTab;
+                    return null; 
+                }
+
+                return groupSeparator.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.offsetTop - 40;
+            }
+
+            $scope.scrollTo = function(tab, alias) {
+                $timeout(function() {
+                    var y = alias != 0 ? getScrollPositionFor(tab, alias) : 0;
+
+                    if (alias === 0 || getScrollPositionFor !== null) {
+                        var viewportHeight = scrollableNode.clientHeight;
+                        var from = scrollableNode.scrollTop;
+                        var to = Math.min(y, scrollableNode.scrollHeight - viewportHeight);
+                        var animeObject = { _y: from };
+                        $scope.scrollTween = anime({
+                            targets: animeObject,
+                            _y: to,
+                            easing: 'easeOutExpo',
+                            duration: 200 + Math.min(Math.abs(to - from) / viewportHeight * 100, 400),
+                            update: function update() {
+                                scrollableNode.scrollTo(0, animeObject._y);
+                            }
+                        });
+                    }
+                });
+            }
+            function cancelScrollTween() {
+                if ($scope.scrollTween) {
+                    $scope.scrollTween.pause();
+                }
+            }
+
+            $scope.content.tabs.map(function(tab) {
+                $scope.groupSeparators[tab.label] = [];
+
+                tab.properties.map(function(prop, i) {
+                    if (i > 0 && prop.editor == "Our.Umbraco.Matryoshka.GroupSeparator") {
+                        $scope.groupSeparators[tab.label].push(prop);
+                    }
+                });
+            });
+            
+            //ensure to unregister from all dom-events
+            $scope.$on('$destroy', function () {
+                cancelScrollTween();
+            });
         }
 
         var directive = {

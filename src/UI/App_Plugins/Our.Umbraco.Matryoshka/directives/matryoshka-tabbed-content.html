@@ -6,12 +6,21 @@
               matryoshka-val-tab="" 
               id="tab{{group.label}}" 
               ng-class="{'active' : currentTab === group.label, 'hasError' : tabHasError}" 
-              ng-repeat="group in content.tabs | limitTo: maxTabs" 
-              ng-click="changeTab(group.label)">
+              ng-repeat="group in content.tabs | limitTo: maxTabs" >
                 <p>
                     <i class="icon icon-alert"></i>
                     <span>{{group.label}}</span>
                 </p>
+                <button class="btn-reset matryoshka-tab-link-button" ng-click="changeTab(group.label)" type="button" role="tab"></button>
+                <umb-dropdown class="matryoshka-tab-dropdown" ng-if="groupSeparators[group.label] && groupSeparators[group.label].length > 0">
+                    <umb-dropdown-item ng-repeat="separator in groupSeparators[group.label]">
+                        <button class="btn-reset umb-tab-button" ng-click="scrollTo(group.label, separator.alias)" role="tab" type="button">
+                            <p>
+                                <span>{{separator.label}}</span>
+                            </p>
+                        </button>
+                    </umb-dropdown-item>
+                </umb-dropdown>
             </li>
   
             <li data-element="tab-expand" class="umb-tab umb-tab--expand" ng-class="{ 'open': showTray }" ng-show="needTray">

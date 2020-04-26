@@ -85,6 +85,33 @@
     display:none;
 }
 
+.matryoshka-tab-dropdown {
+    display:none;
+    margin-top: -1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: 0 3px 5px rgba(0,0,0,.15);
+}
+
+.matryoshka-tab-dropdown .umb-tab-button:focus {
+    outline:none;
+}
+
+.matryoshka-tab-link:hover .matryoshka-tab-dropdown,
+.matryoshka-tab-dropdown:hover {
+    display:block;
+}
+
+.matryoshka-tab-link-button {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    opacity:0;
+    width:100%;
+}
+
 .matryoshka-tabbed-content-push {
     height:20px;
 }
