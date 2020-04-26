@@ -123,7 +123,7 @@
         var directive = {
             restrict: 'E',
             replace: true,
-            templateUrl: '/App_Plugins/Our.Umbraco.Matryoshka/directives/matryoshka-tabbed-content.html',
+            templateUrl: '/App_Plugins/Our.Umbraco.Matryoshka/directives/matryoshka-tabbed-content.html?umb_rnd=' + Umbraco.Sys.ServerVariables.application.cacheBuster,
             controller: controller,
             link: link,
             scope: {
