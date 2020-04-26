@@ -38,3 +38,30 @@
     color:inherit;
     font-weight:normal;
 }
+
+.umb-nested-content-property-container .our-matryoshka-group-separator {
+    margin-top:0;
+    margin-bottom:-3px;
+    padding:5px 20px 0 0;
+    background:none;
+}
+.umb-nested-content-property-container .our-matryoshka-group-separator::before {
+    content:'';
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:20px;
+    height:20px;
+    background-image:linear-gradient(to bottom, transparent, #f4f4f5);
+    border-bottom:1px solid #e9e9eb;
+}
+
+.umb-nested-content-property-container .our-matryoshka-group-separator label {
+    background:none;
+    border-radius:0 6px;
+    box-shadow:none;
+    margin-bottom:-3px;
+    border: 1px solid #e9e9eb;
+    border-bottom: 0;
+    background-image:linear-gradient(to bottom, #fdfcfc, #faf9f9);
+}
