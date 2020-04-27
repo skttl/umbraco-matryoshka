@@ -7,10 +7,27 @@
             view: "~/App_Plugins/Our.Umbraco.Matryoshka/group-separator.html",
             hideLabel: true
         },
+        prevalues: {
+            fields: [
+                {
+                    label: "Collapsible",
+                    description: "Should groups starting with this separator be collapsible?",
+                    key: "collapsible",
+                    view: "boolean"
+                },
+                {
+                    label: "Collapsed by default",
+                    description: "Should groups starting with this separator be collapsed by default? Checking this, will also make groups collapsible!",
+                    key: "collapsedByDefault",
+                    view: "boolean"
+                },
+            ]
+        },
 		icon: "icon-matryoshka"
   	}],
     javascript: [
         "~/App_Plugins/Our.Umbraco.Matryoshka/content-interceptor.js",
+        "~/App_Plugins/Our.Umbraco.Matryoshka/groupseparator.controller.js",
         "~/App_Plugins/Our.Umbraco.Matryoshka/directives/matryoshka-tabbed-content.directive.js",
         "~/App_Plugins/Our.Umbraco.Matryoshka/directives/matryoshka-val-tab.directive.js"
       ],
