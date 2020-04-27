@@ -1,21 +1,23 @@
 angular.module("umbraco").controller("Matryoshka.GroupSeparator.Controller", [
 
     "$scope",
-    "$rootScope",
     "$timeout",
     "$element",
 
-    function ($scope, $rootScope, $timeout, $element) {
-        console.log($element);
+    function ($scope, $timeout, $element) {
+
+        var separator = $element.closest(".umb-nested-content-property-container");
+        if (separator.length == 0) {
+            separator = $element.closest(".umb-property");
+        }
+        
         $timeout(function() {
-            $element.closest(".umb-property").addClass("our-matryoshka-group-separator-container");
+            separator.addClass("our-matryoshka-group-separator-container");
         });
 
         $scope.toggleCollapse = function() {
             $timeout(function() {
-                var separator = $element.closest(".umb-property");
                 separator.toggleClass("our-matryoshka-group-separator--collapsed");
-
                 separator.nextUntil(".our-matryoshka-group-separator-container").toggleClass("our-matryoshka-group-separator--collapsed");
             });
         }
