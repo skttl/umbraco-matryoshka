@@ -14,6 +14,10 @@
                         response.data = "<div class=\"form-horizontal\" ng-controller=\"Umbraco.Editors.Member.Apps.ContentController as vm\"><matryoshka-tabbed-content ng-if=\"!loading\" content=\"content\"></matryoshka-tabbed-content></div>";
                     }
 
+                    else if (response.config.url.includes("views/media/apps/content/content.html")) {
+                        response.data = "<div class=\"form-horizontal\" ng-controller=\"Umbraco.Editors.Media.Apps.ContentController as vm\"><matryoshka-tabbed-content ng-if=\"!loading\" content=\"content\"></matryoshka-tabbed-content></div>";
+                    }
+
                     return response;
                 }
             };
