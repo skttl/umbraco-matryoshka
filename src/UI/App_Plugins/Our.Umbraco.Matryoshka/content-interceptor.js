@@ -6,7 +6,7 @@
             return {
                 'response': function (response) {
 
-                    if (response.config.url.includes("views/content/apps/content/content.html")) {
+                    if (response.config.url.includes("views/content/apps/content/content.html") || response.config.url.includes("doctypegrideditor.dialog.html")) {
                         response.data = response.data.replace("umb-tabbed-content", "matryoshka-tabbed-content");
                     }
 
