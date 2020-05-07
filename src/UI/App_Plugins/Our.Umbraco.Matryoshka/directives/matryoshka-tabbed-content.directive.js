@@ -121,24 +121,37 @@
             scrollableNode.addEventListener('mousewheel', cancelScrollTween);
 
             function getScrollPositionFor(tab, alias) {
-                var previousTab = $scope.currentTab + "";
-                $scope.currentTab = tab;
+                var offset = null;
+                var groupSeparator = null;
 
-                var groupSeparator = document.querySelector("#our-matryoshka-group-separator-" + alias);
+                if (alias == 0) {
+                    offset = 0;
+                } else {
+                    var previousTab = $scope.currentTab + "";
+                    $scope.currentTab = tab;
 
-                if (!groupSeparator) { 
-                    $scope.currentTab = previousTab;
-                    return null; 
+                    groupSeparator = document.querySelector("#our-matryoshka-group-separator-" + alias);
+
+                    if (!groupSeparator) {
+                        $scope.currentTab = previousTab;
+                        offset = null;
+                    }
                 }
 
-                return groupSeparator.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.offsetTop - 40;
+                return $timeout(function () {
+                    if (groupSeparator) {
+                        offset = groupSeparator.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.offsetTop - 40;
+                    }
+
+                    return offset;
+                });
             }
 
             $scope.scrollTo = function(tab, alias) {
-                $timeout(function() {
-                    var y = alias != 0 ? getScrollPositionFor(tab, alias) : 0;
+                getScrollPositionFor(tab, alias).then(function(response) {
+                    var y = response;
 
-                    if (alias === 0 || getScrollPositionFor !== null) {
+                    if (alias === 0 || y !== null) {
                         var viewportHeight = scrollableNode.clientHeight;
                         var from = scrollableNode.scrollTop;
                         var to = Math.min(y, scrollableNode.scrollHeight - viewportHeight);
