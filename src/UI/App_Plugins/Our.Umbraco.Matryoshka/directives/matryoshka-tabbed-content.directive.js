@@ -178,7 +178,7 @@
                 $scope.groupSeparators[tab.label] = [];
 
                 tab.properties.map(function(prop, i) {
-                    if (i > 0 && prop.editor == "Our.Umbraco.Matryoshka.GroupSeparator") {
+                    if (i > 0 && prop.editor == "Our.Umbraco.Matryoshka.GroupSeparator" && prop.config.anchor == "1") {
                         $scope.groupSeparators[tab.label].push(prop);
                     }
                 });
