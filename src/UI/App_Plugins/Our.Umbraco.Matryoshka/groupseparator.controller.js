@@ -24,7 +24,7 @@ angular.module("umbraco").controller("Matryoshka.GroupSeparator.Controller", [
             });
         }
 
-        $scope.collapsible = $scope.model.config.collapsible.indexOf("collapsible") == 0;
+        $scope.collapsible = $scope.model.config.collapsible && $scope.model.config.collapsible.indexOf("collapsible") == 0;
 
         if (($scope.model.config.collapsible == "collapsibleOpenOnCreation" && !isNew) || $scope.model.config.collapsible == "collapsibleClosedOnLoad") {
             $scope.toggleCollapse();
