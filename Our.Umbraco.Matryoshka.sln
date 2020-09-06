@@ -10,7 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C4B64264-1C23-4073-9656-77997B40012E}"
 	ProjectSection(SolutionItems) = preProject
 		gulpfile.js = gulpfile.js
-		package.xml = package.xml
+		src\package.xml = src\package.xml
 		readme.md = readme.md
 	EndProjectSection
 EndProject
