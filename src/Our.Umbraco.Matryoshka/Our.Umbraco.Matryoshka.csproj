@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <RootNamespace>Our.Umbraco.Matryoshka</RootNamespace>
+
+		<IncludeContentInPack>true</IncludeContentInPack>
+		<ContentTargetFolders>content</ContentTargetFolders>
+		<Version>0.4.0</Version>
+		<Authors>Søren Kottal</Authors>
+		<Description>Matryoshka enables you to layer your document type properties in tabs and groups. It substitutes the content editor view, with its own view, to make existing groups appear as tabs, and adds a property editor, which gives the impression of groups.</Description>
+		<Copyright>Copyright 2020</Copyright>
+		<PackageProjectUrl>https://github.com/skttl/our-umbraco-matryoshka</PackageProjectUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/skttl/our-umbraco-matryoshka</RepositoryUrl>
+		<PackageTags>umbraco, umbraco-cms</PackageTags>
+
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="App_Plugins\**\*" />
+		<Compile Remove="**\*" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Include="Controllers\**\*" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\..\Our.Umbraco.Matryoshka\docs\icon.png">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
+	</ItemGroup>
+</Project>

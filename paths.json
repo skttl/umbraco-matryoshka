@@ -1,0 +1,5 @@
+{
+  "library": "src/Our.Umbraco.Matryoshka",
+  "pluginFolder": "Our.Umbraco.Matryoshka",
+  "site": ".website"
+}

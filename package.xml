@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<umbPackage>
+  <info>
+    <package>
+      <name>Our.Umbraco.Matryoshka</name>
+      <version>0.4.0</version>
+      <iconUrl>https://raw.githubusercontent.com/skttl/umbraco-matryoshka/master/docs/icon.png</iconUrl>
+      <licence url="https://opensource.org/licenses/MIT">MIT</licence>
+      <url>https://github.com/skttl/our-umbraco-matryoshka</url>
+      <requirements type="strict">
+        <major>8</major>
+        <minor>1</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Søren Kottal</name>
+      <website>https://github.com/skttl</website>
+    </author>
+    <readme><![CDATA[Matryoshka enables you to layer your document type properties in tabs and groups. It substitutes the content editor view, with its own view, to make existing groups appear as tabs, and adds a property editor, which gives the impression of groups.]]></readme>
+  </info>
+  <files>
+    <folder path="src/Our.Umbraco.Matryoshka/App_Plugins/Our.Umbraco.Matryoshka" orgPath="App_Plugins/Our.Umbraco.Matryoshka" />
+  </files>
+  <Actions />
+  <control />
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+</umbPackage>
