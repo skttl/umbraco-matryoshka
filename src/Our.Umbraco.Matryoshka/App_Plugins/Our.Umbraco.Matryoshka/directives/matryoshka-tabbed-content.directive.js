@@ -36,7 +36,7 @@
 
                     // detect how many tabs we can show on the screen
                     for (var i = 0; i <= tabNavItemsWidths.length; i++) {
-                        
+
                         var tabWidth = tabNavItemsWidths[i];
                         tabsWidth += tabWidth;
 
@@ -47,7 +47,7 @@
                             break;
                         }
                     }
-                    
+
                 });
             }
 
@@ -99,14 +99,14 @@
                     }
                 }
             );
-                
+
             $scope.needTray = false;
             $scope.showTray = false;
             $scope.overflowingSections = 0;
 
             $scope.toggleTray = toggleTray;
             $scope.hideTray = hideTray;
-            
+
             function toggleTray() {
                 $scope.showTray = !$scope.showTray;
             }
@@ -115,7 +115,7 @@
                 $scope.showTray = false;
             }
 
-            
+
             $scope.groupSeparators = {};
             var scrollableNode = appRootNode.closest('.umb-scrollable');
             scrollableNode.addEventListener('mousewheel', cancelScrollTween);
@@ -178,12 +178,12 @@
                 $scope.groupSeparators[tab.label] = [];
 
                 tab.properties.map(function(prop, i) {
-                    if (i > 0 && prop.editor == "Our.Umbraco.Matryoshka.GroupSeparator" && prop.config.anchor == "1") {
+                    if (prop.editor == "Our.Umbraco.Matryoshka.GroupSeparator" && prop.config.anchor == "1") {
                         $scope.groupSeparators[tab.label].push(prop);
                     }
                 });
             });
-            
+
             //ensure to unregister from all dom-events
             $scope.$on('$destroy', function () {
                 cancelScrollTween();
