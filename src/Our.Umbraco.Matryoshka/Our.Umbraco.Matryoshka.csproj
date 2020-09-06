@@ -26,9 +26,8 @@
 	<ItemGroup>
 	  <Compile Include="Controllers\**\*" />
 	</ItemGroup>
-
 	<ItemGroup>
-	  <None Include="..\..\..\Our.Umbraco.Matryoshka\docs\icon.png">
+	  <None Include="..\..\docs\icon.png">
 	    <Pack>True</Pack>
 	    <PackagePath></PackagePath>
 	  </None>
