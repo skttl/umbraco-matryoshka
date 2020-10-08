@@ -11,6 +11,14 @@ angular.module("umbraco").controller("Matryoshka.GroupSeparator.Controller", [
         var separator = $element.closest(".umb-nested-content-property-container");
         if (separator.length == 0) {
             separator = $element.closest(".umb-property");
+
+            //Get parent of separator
+            let separatorParent = separator.parent()[0]
+
+            //If parent of separator is the new umb-property directive assign it to separator.
+            if (separatorParent.nodeName == "UMB-PROPERTY") {
+                separator = $(separatorParent);
+            }
         }
         
         $timeout(function() {

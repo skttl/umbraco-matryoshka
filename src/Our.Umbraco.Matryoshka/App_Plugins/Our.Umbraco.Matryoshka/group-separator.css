@@ -6,23 +6,25 @@
     background: #f6f4f4;
 }
 
+umb-property:not(:first-child) .our-matryoshka-group-separator,
 .umb-property:not(:first-child) .our-matryoshka-group-separator {
-    margin-top:0;
-    padding-top:40px;
+    margin-top: 0;
+    padding-top: 40px;
 }
 
+umb-property:not(:first-child) .our-matryoshka-group-separator:before,
 .umb-property:not(:first-child) .our-matryoshka-group-separator:before {
-    content: '';
-    background: #fff;
-    height: 10px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 1px;
-    right: 1px;
-    border-radius: 3px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.16);
-}
+        content: '';
+        background: #fff;
+        height: 10px;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 1px;
+        right: 1px;
+        border-radius: 3px;
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.16);
+    }
 
 .our-matryoshka-group-separator label {
     display: block;
@@ -45,26 +47,32 @@
     padding:5px 20px 0 0;
     background:none;
 }
-.umb-nested-content-property-container .our-matryoshka-group-separator::before {
-    content:'';
-    position:absolute;
-    bottom:0;
-    right:0;
-    width:20px;
-    height:20px;
-    background-image:linear-gradient(to bottom, transparent, #f4f4f5);
-    border-bottom:1px solid #e9e9eb;
-}
 
-.umb-nested-content-property-container .our-matryoshka-group-separator label {
-    background:none;
-    border-radius:0 6px;
-    box-shadow:none;
-    margin-bottom:-3px;
-    border: 1px solid #e9e9eb;
-    border-bottom: 0;
-    background-image:linear-gradient(to bottom, #fdfcfc, #faf9f9);
-}
+    .umb-nested-content-property-container umb-property .our-matryoshka-group-separator::before,
+    .umb-nested-content-property-container .our-matryoshka-group-separator::before {
+        content: '';
+        position: absolute;
+        top: auto;
+        left: auto;
+        bottom: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+        background-image: linear-gradient(to bottom, transparent, #f4f4f5);
+        border-bottom: 1px solid #e9e9eb;
+    }
+
+    .umb-nested-content-property-container .our-matryoshka-group-separator label {
+        background: none;
+        border-radius: 0 6px;
+        box-shadow: none;
+        margin-bottom: -3px;
+        border: 1px solid #e9e9eb;
+        border-bottom: 0;
+        border-left: 0;
+        background-image: linear-gradient(to bottom, #fdfcfc, #faf9f9);
+    }
 
 .our-matryoshka-group-separator--collapsed:not(.our-matryoshka-group-separator-container) {
     display:none;
