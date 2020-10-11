@@ -77,9 +77,19 @@
                 return true;
             };
 
-            $scope.changeTab = function changeTab(label) {
+            // on changeTab event we change the tab so all active tab instances are synced.
+            eventsService.on("matryoshka.tabbedContent.changedTab", function (event, args) {
+                //broadcastEvent is false so we don't create a loop
+                $scope.changeTab(args.label, false)
+            });
+
+            $scope.changeTab = function changeTab(label, broadcastEvent = true) {
                 $scope.currentTab = label;
                 $scope.scrollTo(label, 0);
+                //if broadcastEvent is true and tabs are synced eventsService is used to broadcast event.
+                if (broadcastEvent && $scope.syncTabs) {
+                    eventsService.emit("matryoshka.tabbedContent.changedTab", { label: label });
+                }
             };
 
             $scope.activeVariant = this.activeVariant;
@@ -100,12 +110,36 @@
                 }
             );
 
+            // on syncstate event we set the syncstate to the new state for all active controllers.
+            eventsService.on("matryoshka.tabbedContent.changedSyncState", function (event, args) {
+                $scope.syncTabs = args.syncTabs;
+            });
+
+            // Emits syncstate so it can be used in all active controllers.
+            function toggleSync() {
+                eventsService.emit("matryoshka.tabbedContent.changedSyncState", { syncTabs: !$scope.syncTabs });
+            }
+
+            // When the splitViewChanged event is broadcasted set the variable splitview
+            // to true if the arg contains more than one editor.
+            $scope.$on("editors.content.splitViewChanged", function (event, args) {
+                if (args.editors.length > 1) {
+                    $scope.splitview = true
+                } else {
+                    $scope.splitview = false;
+                }
+            });
+
             $scope.needTray = false;
             $scope.showTray = false;
             $scope.overflowingSections = 0;
 
             $scope.toggleTray = toggleTray;
             $scope.hideTray = hideTray;
+
+            $scope.splitview = false;
+            $scope.syncTabs = true;
+            $scope.toggleSync = toggleSync;
 
             function toggleTray() {
                 $scope.showTray = !$scope.showTray;
@@ -147,7 +181,13 @@
                 });
             }
 
-            $scope.scrollTo = function(tab, alias) {
+            // on scrolledTo event we change the scrollposition so all active tab instances are synced.
+            eventsService.on("matryoshka.tabbedContent.scrolledTo", function (event, args) {
+                //broadcastEvent is false so we don't create a loop
+                $scope.scrollTo(args.tab, args.alias, false)
+            });
+
+            $scope.scrollTo = function (tab, alias, broadcastEvent = true) {
                 getScrollPositionFor(tab, alias).then(function(response) {
                     var y = response;
 
@@ -167,6 +207,10 @@
                         });
                     }
                 });
+                //if broadcastEvent is true and tabs are synced eventsService is used to broadcast event.
+                if (broadcastEvent && $scope.syncTabs) {
+                    eventsService.emit("matryoshka.tabbedContent.scrolledTo", { tab: tab, alias: alias });
+                }
             }
             function cancelScrollTween() {
                 if ($scope.scrollTween) {
