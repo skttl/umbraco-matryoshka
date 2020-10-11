@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function tabbedContentDirective($timeout) {
+    function tabbedContentDirective($timeout, eventsService) {
 
         function link($scope, $element, $attrs) {
 
