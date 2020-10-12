@@ -143,6 +143,23 @@
     width:100%;
 }
 
+.matryoshka-tab-link-button:focus {
+    outline:0;
+}
+
+    .matryoshka-tab-link-button:focus:before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        opacity: 1;
+        left: 18px;
+        right: 18px;
+        height: 4px;
+        border-radius: 3px 3px 0 0;
+        background-color: #1a264f;
+    }
+
 .matryoshka-tabbed-content-push {
     height:20px;
 }
