@@ -174,7 +174,7 @@
 
                 return $timeout(function () {
                     if (groupSeparator) {
-                        offset = groupSeparator.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.offsetTop - 40;
+                        offset = groupSeparator.closest(".umb-control-group").offsetTop;
                     }
 
                     return offset;
