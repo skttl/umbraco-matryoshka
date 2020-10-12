@@ -1,12 +1,28 @@
+.matryoshka-tabs-list-wrapper {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    margin: -20px 0 0 -20px;
+    background: #fff;
+    padding: 0 20px;
+    z-index: 6;
+}
+
+.matryoshka-tabs-syncbutton {
+    background: none;
+    border: none;
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    top: 20px;
+    z-index: 7;
+    padding: 0 3px;
+}
 
 .matryoshka-tabs-list {
-    margin: -20px 0 0 -20px;
-    position: sticky;
-    top:0;
-    z-index: 6;
-    background: #fff;
-    width: 100%;
-    padding:0 20px;
+    margin: 0;
+    padding:0;
 }
 
 .matryoshka-tabs-list ~ .umb-group-panel {
