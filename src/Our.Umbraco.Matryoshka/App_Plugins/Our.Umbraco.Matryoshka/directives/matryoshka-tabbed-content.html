@@ -41,9 +41,9 @@
                     </umb-dropdown>
                 </li>
             </ul>
-            <button type="button" aria-label="Sync-tabs" ng-if="splitview" ng-click="toggleSync()" class="matryoshka-tabs-syncbutton">
-                <i ng-if="syncTabs" class="icon-lock" aria-hidden="true"></i>
-                <i ng-if="!syncTabs" class="icon-unlocked -unlocked" aria-hidden="true"></i>
+            <button type="button" aria-label="Sync-tabs" ng-if="splitview" ng-click="toggleSync()" class="matryoshka-tabs-syncbutton" title="{{ syncTabs ? 'Disable tab syncing' : 'Enable tab syncing' }}">
+                <i ng-if="syncTabs" class="icon-traffic color-green" aria-hidden="true"></i>
+                <i ng-if="!syncTabs" class="icon-traffic color-grey" aria-hidden="true"></i>
             </button>
         </div>
         <div class="matryoshka-tabbed-content-push" ng-if="content.tabs.length > 1"></div>

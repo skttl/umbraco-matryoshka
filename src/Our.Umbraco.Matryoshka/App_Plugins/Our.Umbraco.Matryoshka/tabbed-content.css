@@ -15,10 +15,22 @@
     display: block;
     top: 0;
     right: 0;
-    top: 20px;
     z-index: 7;
-    padding: 0 3px;
+    padding: 19px 10px;
 }
+
+.matryoshka-tabs-syncbutton:focus {
+    outline:none;
+}
+
+    .matryoshka-tabs-syncbutton:focus > i {
+        border-radius: 100%;
+        background-color: #eee;
+        padding: 5px;
+        margin: -3px -5px;
+        display: inline-block;
+        line-height: 1;
+    }
 
 .matryoshka-tabs-list {
     margin: 0;
@@ -128,7 +140,6 @@
     left:0;
     right:0;
     bottom:0;
-    opacity:0;
     width:100%;
 }
 
