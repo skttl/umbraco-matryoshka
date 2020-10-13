@@ -13,34 +13,30 @@
 
             $scope.overflowingTabs = 0;
 
-
             var tabNavItemsWidths = [];
-            // the parent is the component itself so we need to go one level higher
-            var container = $element.parent().parent();
 
-            $timeout(function(){
-                $element.find(".matryoshka-tabs-list li:not(.umb-tab--expand)").each(function() {
+            $timeout(function () {
+                $element.find(".matryoshka-tab-link").each(function () {
                     tabNavItemsWidths.push($(this).outerWidth());
                 });
                 calculateWidth();
             });
 
-            function calculateWidth(){
-                $timeout(function(){
-                    // 70 is the width of the expand menu (three dots) + 20 for the margin on umb-tabs-nav
-                    var containerWidth = container.width() - 90;
-                    var tabsWidth = 0;
+            function calculateWidth() {
+                $timeout(function () {
                     $scope.overflowingSections = 0;
                     $scope.needTray = false;
                     $scope.maxTabs = tabNavItemsWidths.length;
 
                     // detect how many tabs we can show on the screen
+                    var tabsWidth = 0;
+                    //containerWidth = element innerWidth - 70 (umb-tab-button) + 5px for rounding issues and to prevent multilining during resizing.
+                    var containerWidth = $element.innerWidth() - 75;
                     for (var i = 0; i <= tabNavItemsWidths.length; i++) {
-
                         var tabWidth = tabNavItemsWidths[i];
                         tabsWidth += tabWidth;
+                        if (tabsWidth >= containerWidth) {
 
-                        if(tabsWidth >= containerWidth) {
                             $scope.needTray = true;
                             $scope.maxTabs = i;
                             $scope.overflowingTabs = $scope.maxTabs - $scope.content.tabs.length;
@@ -51,11 +47,10 @@
                 });
             }
 
-            var ro = new ResizeObserver(function() {
+            var ro = new ResizeObserver(function () {
                 calculateWidth();
             });
-
-            ro.observe(container[0]);
+            ro.observe(appRootNode);
         }
 
         function controller($scope, $element, $attrs, $timeout) {
