@@ -30,7 +30,7 @@
 
                     // detect how many tabs we can show on the screen
                     var tabsWidth = 0;
-                    //containerWidth = element innerWidth - 70 (umb-tab-button) + 5px for rounding issues and to prevent multilining during resizing.
+                    //containerWidth = element innerWidth - 75 (umb-tab-button) + 5px for rounding issues and to prevent multilining during resizing.
                     var containerWidth = $element.innerWidth() - 75;
                     for (var i = 0; i <= tabNavItemsWidths.length; i++) {
                         var tabWidth = tabNavItemsWidths[i];
