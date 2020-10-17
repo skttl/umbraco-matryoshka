@@ -69,7 +69,8 @@
 }
 
     .matryoshka-tab-link:not(.active):hover,
-    .matryoshka-tab-link:focus {
+    .matryoshka-tab-link:focus,
+    .matryoshka-tab-link:focus-within > p {
         color: #2152a3;
     }
 
@@ -147,25 +148,25 @@
     width:100%;
 }
 
-.matryoshka-tab-link-button:focus {
-    outline:0;
-}
-
-    .matryoshka-tab-link-button:focus:before {
-        content: '';
-        display: block;
-        position: absolute;
-        bottom: 0;
-        opacity: 1;
-        left: 18px;
-        right: 18px;
-        height: 4px;
-        border-radius: 3px 3px 0 0;
-        background-color: #1a264f;
+    .matryoshka-tab-link-button:focus {
+        outline: 0;
     }
 
+.matryoshka-tab-link:not(.active) > .matryoshka-tab-link-button:focus:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    opacity: 1;
+    left: 12px;
+    right: 12px;
+    height: 4px;
+    border-radius: 3px 3px 0 0;
+    background-color: #e9e9eb;
+}
+
 .matryoshka-tabbed-content-push {
-    height:20px;
+    height: 20px;
 }
 
 /* moves the Grid re-order bar down so it doesn't cover the tabs */
