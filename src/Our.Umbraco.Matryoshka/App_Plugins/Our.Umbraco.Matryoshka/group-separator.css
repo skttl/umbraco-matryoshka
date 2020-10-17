@@ -48,6 +48,7 @@ umb-property:not(:first-child) .our-matryoshka-group-separator:before,
     font-weight: 700;
     font-size: 14px;
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
     color: #222;
@@ -118,6 +119,10 @@ umb-property:not(:first-child) .our-matryoshka-group-separator:before,
     margin-right:20px;
     margin-top:10px;
     border-color:#e9e9eb !important;
+}
+
+.blockelement-inlineblock-editor__inner .our-matryoshka-group-separator-collapser {
+    margin:0;
 }
 
 .our-matryoshka-group-separator-collapser:hover,
