@@ -10,9 +10,9 @@ var config = require('./paths.json');
 const appPluginPath = '/App_Plugins/' + config.pluginFolder;
 
 const appPlugin = {
-    source : config.library + appPluginPath + '/**/*',
-    src : config.library + appPluginPath + '/',
-    dest : config.site + appPluginPath
+    source: config.library + appPluginPath + '/**/*',
+    src: config.library + appPluginPath + '/',
+    dest: config.site + appPluginPath
 }
 
 

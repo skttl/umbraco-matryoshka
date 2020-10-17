@@ -9,10 +9,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.Matryoshka", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C4B64264-1C23-4073-9656-77997B40012E}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\build.yml = .github\workflows\build.yml
+		.gitignore = .gitignore
 		gulpfile.js = gulpfile.js
-		src\package.xml = src\package.xml
+		LICENSE = LICENSE
+		package.json = package.json
+		paths.json = paths.json
 		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{06774B08-AC6C-407C-92AD-0780264CDABE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{6335E278-A74E-41C5-B32E-41F73C4BB0F6}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+		.github\workflows\readme.md = .github\workflows\readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{59CC1552-502F-4051-BD56-994F21011ACB}"
+	ProjectSection(SolutionItems) = preProject
+		docs\icon.png = docs\icon.png
+		docs\separator.png = docs\separator.png
+		docs\tabs.png = docs\tabs.png
 	EndProjectSection
 EndProject
 Global
@@ -32,6 +49,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{06774B08-AC6C-407C-92AD-0780264CDABE} = {C4B64264-1C23-4073-9656-77997B40012E}
+		{6335E278-A74E-41C5-B32E-41F73C4BB0F6} = {06774B08-AC6C-407C-92AD-0780264CDABE}
+		{59CC1552-502F-4051-BD56-994F21011ACB} = {C4B64264-1C23-4073-9656-77997B40012E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A4335E4-0198-4777-9409-64E22F1F8F2C}
