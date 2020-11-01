@@ -9,7 +9,7 @@
     margin: -20px 0 0 -20px;
     background: #fff;
     padding: 0 20px;
-    z-index: 6;
+    z-index: 800;
 }
 
 .matryoshka-tabs-syncbutton {
@@ -19,7 +19,7 @@
     display: block;
     top: 0;
     right: 0;
-    z-index: 7;
+    z-index: 900;
     padding: 19px 10px;
 }
 
