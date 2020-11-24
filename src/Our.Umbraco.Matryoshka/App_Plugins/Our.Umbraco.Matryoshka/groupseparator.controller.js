@@ -13,14 +13,14 @@ angular.module("umbraco").controller("Matryoshka.GroupSeparator.Controller", [
             separator = $element.closest(".umb-property");
 
             //Get parent of separator
-            let separatorParent = separator.parent()[0]
+            let separatorParent = separator.parent()[0];
 
             //If parent of separator is the new umb-property directive assign it to separator.
-            if (separatorParent.nodeName == "UMB-PROPERTY") {
+            if (separatorParent != null && separatorParent.nodeName == "UMB-PROPERTY") {
                 separator = $(separatorParent);
             }
         }
-        
+
         $timeout(function() {
             separator.addClass("our-matryoshka-group-separator-container");
         });
