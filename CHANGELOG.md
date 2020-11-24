@@ -7,12 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-## 0.7.0
+## 0.7.0 - 2020-11-24
+
 - Fix: Missing top margin
 - Fix: Console error when editing doctype
 - Fix: Z-index issues
 
-## 0.6.0
+## 0.6.0 - 2020-11-01
 
 - Fixes collapsible groups in Umbraco 8.7+ (thanks @FransDeJong)
 - Adds syncing between tabs in split view (thanks @FransDeJong)
