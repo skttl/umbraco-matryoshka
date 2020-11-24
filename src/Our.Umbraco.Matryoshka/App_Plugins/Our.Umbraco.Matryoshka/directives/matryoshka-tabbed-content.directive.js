@@ -75,7 +75,7 @@
             // on changeTab event we change the tab so all active tab instances are synced.
             eventsService.on("matryoshka.tabbedContent.changedTab", function (event, args) {
                 //broadcastEvent is false so we don't create a loop
-                if ($scope.$parent.content.id == args.contentId) {
+                if ($scope.$parent.content?.id == args.contentId) {
                     $scope.changeTab(args.label, false)
                 }
             });
@@ -85,7 +85,8 @@
                 $scope.scrollTo(label, 0);
                 //if broadcastEvent is true and tabs are synced eventsService is used to broadcast event.
                 if (broadcastEvent && $scope.syncTabs) {
-                    eventsService.emit("matryoshka.tabbedContent.changedTab", { label: label, contentId: $scope.$parent.content.id });
+
+                    eventsService.emit("matryoshka.tabbedContent.changedTab", { label: label, contentId: $scope.$parent.content?.id });
                 }
             };
 
