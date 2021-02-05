@@ -29,7 +29,7 @@ angular.module("umbraco").controller("Matryoshka.GroupSeparator.Controller", [
             $timeout(function() {
                 separator.toggleClass("our-matryoshka-group-separator--collapsed");
                 separator.nextUntil(".our-matryoshka-group-separator-container").toggleClass("our-matryoshka-group-separator--collapsed");
-            });
+            }, 1);
         }
 
         $scope.collapsible = $scope.model.config.collapsible && $scope.model.config.collapsible.indexOf("collapsible") == 0;
