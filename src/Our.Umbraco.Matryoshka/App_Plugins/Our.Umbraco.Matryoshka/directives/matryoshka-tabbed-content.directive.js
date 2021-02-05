@@ -57,6 +57,10 @@
 
             var appRootNode = $element[0];
 
+            // add form-horizontal class for <8.6
+            var umbracoVersion = Umbraco.Sys.ServerVariables.application.version.split(".").map(v => parseInt(v));
+            $scope.formHorizontalClass = umbracoVersion[0] == 8 && umbracoVersion[1] < 6 ? "form-horizontal" : "";
+
             $scope.currentTab = $scope.content.tabs[0];
 
             this.content = $scope.content;
