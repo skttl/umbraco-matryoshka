@@ -57,10 +57,6 @@
 
             var appRootNode = $element[0];
 
-            // add form-horizontal class for <8.6
-            var umbracoVersion = Umbraco.Sys.ServerVariables.application.version.split(".").map(v => parseInt(v));
-            $scope.formHorizontalClass = umbracoVersion[0] == 8 && umbracoVersion[1] < 6 ? "form-horizontal" : "";
-
             $scope.currentTab = $scope.content.tabs[0];
 
             this.content = $scope.content;
@@ -96,9 +92,13 @@
 
             $scope.activeVariant = this.activeVariant;
 
-            $scope.defaultVariant = _.find(this.content.variants, variant => {
-                return variant.language.isDefault;
-            });
+            if ($scope.contentNodeModel) {
+                $scope.defaultVariant = _.find($scope.contentNodeModel.variants, variant => {
+                    // defaultVariant will never have segment. Wether it has a language or not depends on the setup.
+                    return !variant.segment && ((variant.language && variant.language.isDefault) || (!variant.language));
+                });
+            }
+   
 
             $scope.unlockInvariantValue = function (property) {
                 property.unlockInvariantValue = !property.unlockInvariantValue;
@@ -111,6 +111,25 @@
                     }
                 }
             );
+
+            $scope.propertyEditorDisabled = function (property) {
+                if (property.unlockInvariantValue) {
+                    return false;
+                }
+
+                var contentLanguage = $scope.content.language;
+
+                var canEditCulture = !contentLanguage ||
+                    // If the property culture equals the content culture it can be edited
+                    property.culture === contentLanguage.culture ||
+                    // A culture-invariant property can only be edited by the default language variant
+                    (property.culture == null && contentLanguage.isDefault);
+
+         
+                var canEditSegment = property.segment === $scope.content.segment;
+
+                return !canEditCulture || !canEditSegment;
+            }
 
             // on syncstate event we set the syncstate to the new state for all active controllers.
             eventsService.on("matryoshka.tabbedContent.changedSyncState", function (event, args) {
@@ -243,7 +262,8 @@
             controller: controller,
             link: link,
             scope: {
-                content: "="
+                content: "=", 
+                contentNodeModel: "=?" //contentNodeModel is the content model for the node, 
             }
         };
 
