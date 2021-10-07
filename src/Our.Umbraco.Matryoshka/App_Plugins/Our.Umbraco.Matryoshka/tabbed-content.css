@@ -1,5 +1,6 @@
 /* Disable adding native tabs while package is installed */
-.umb-group-builder__tabs [data-element='tab-add'] {
+.umb-group-builder__tabs-list__add-tab,
+.umb-group-builder__convert-dropzone {
     display: none;
 }
 
