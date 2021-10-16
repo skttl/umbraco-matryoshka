@@ -12,9 +12,8 @@ env:
   CONFIG: release
 
 on:
-  push:
-    tags:
-      - "release/*"
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -51,16 +50,17 @@ jobs:
         run: dotnet pack ${{ env.LIBRARY_FOLDER }} -c ${{ env.CONFIG }} --no-build --include-symbols -o ${{ env.OUTPUT }} /p:version=${{ steps.get_version.outputs.VERSION }}
 
       - name: Create Umbraco package file
-        run: UmbPack pack ./src/package.xml -o ${{ env.OUTPUT }} -v ${{ steps.get_version.outputs.VERSION }}
+        run: UmbPack pack ./package.xml -o ${{ env.OUTPUT }} -v ${{ steps.get_version.outputs.VERSION }}
 
       - name: upload-artifacts
         uses: actions/upload-artifact@v2
         with:
           name: Build-Results-${{ steps.get_version.outputs.VERSION }}
           path: ${{ env.OUTPUT }}/**/*
-
+          
       - name: Push to NuGet
-        run: nuget push ${{ env.OUTPUT }}/**/*.nupkg ${{ secrets.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json -NoSymbols
+        run: dotnet nuget push ${{ env.OUTPUT }}/Our.Umbraco.Matryoshka.${{ steps.get_version.outputs.VERSION }}.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
 
       - name: Push to Our
-        run: UmbPack push ${{ env.OUTPUT }}/**/*.zip -k ${{ secrets.OUR_API_KEY }} -a *
+        if: contains(steps.get_version.outputs.VERSION, '-') != true
+        run: UmbPack push ${{ env.OUTPUT }}/Our.Umbraco.Matryoshka_${{ steps.get_version.outputs.VERSION }}.zip -k ${{ secrets.OUR_API_KEY }} -a *

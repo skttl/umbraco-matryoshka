@@ -4,6 +4,10 @@
     function tabbedContentDirective($timeout, eventsService) {
 
         function link($scope, $element, $attrs) {
+            // Filter out native tabs without properties
+            $scope.content.tabs = $scope.content.tabs.filter(function (tab) {
+                return !tab.type || tab.type === 0 || tab.properties.length > 0;
+            });
 
             var appRootNode = $element[0];
             $scope.currentTab = "";

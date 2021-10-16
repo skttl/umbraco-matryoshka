@@ -1,3 +1,9 @@
+/* Disable adding native tabs while package is installed */
+.umb-group-builder__tabs-list__add-tab,
+.umb-group-builder__convert-dropzone {
+    display: none;
+}
+
 .matryoshka-tabbed-content .umb-group-panel {
     margin-bottom: 0;
 }
