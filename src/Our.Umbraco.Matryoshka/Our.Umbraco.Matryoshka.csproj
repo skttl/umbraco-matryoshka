@@ -6,7 +6,7 @@
 
 		<IncludeContentInPack>true</IncludeContentInPack>
 		<ContentTargetFolders>content</ContentTargetFolders>
-		<Version>0.4.0</Version>
+		<Version>0.8.0</Version>
 		<Authors>Søren Kottal</Authors>
 		<Description>Matryoshka enables you to layer your document type properties in tabs and groups. It substitutes the content editor view, with its own view, to make existing groups appear as tabs, and adds a property editor, which gives the impression of groups.</Description>
 		<Copyright>Copyright 2020</Copyright>
