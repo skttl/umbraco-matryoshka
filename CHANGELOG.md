@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [Only add form-horizontal to matryoshka-tabbed-content in <8.6](https://github.com/skttl/umbraco-matryoshka/issues/46)
 - [Add timeout to prevent closed groups from bugging](https://github.com/skttl/umbraco-matryoshka/issues/48)
 
+## 0.8.0
+- Fixes for working alongside native tabs in 8.17
+- This is the last version - thanks for supporting the package!
+
 ## 0.7.0 - 2020-11-24
 
 - Fix: Missing top margin
